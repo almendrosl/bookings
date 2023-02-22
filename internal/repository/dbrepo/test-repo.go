@@ -74,6 +74,72 @@ func (m *testDBRepo) UpdateUser(u models.User) error {
 
 // Authenticate authenticates the user
 func (m *testDBRepo) Authenticate(email, testPassword string) (int, string, error) {
-	return 1, "", nil
+	if email == "me@here.ca" {
+		return 1, "", nil
+	}
+	return 0, "", errors.New("some error")
+}
 
+// AllReservations return a slice of all reservations
+func (m *testDBRepo) AllReservations() ([]models.Reservation, error) {
+
+	var reservations []models.Reservation
+
+	return reservations, nil
+}
+
+// AllNewReservations return a slice of all reservations
+func (m *testDBRepo) AllNewReservations() ([]models.Reservation, error) {
+
+	var reservations []models.Reservation
+
+	return reservations, nil
+}
+
+// GetReservationByID returns one reservation by ID
+func (m *testDBRepo) GetReservationByID(id int) (models.Reservation, error) {
+	var res models.Reservation
+
+	return res, nil
+}
+
+// UpdateReservation updates a reservation in the database
+func (m *testDBRepo) UpdateReservation(u models.Reservation) error {
+
+	return nil
+}
+
+// DeleteReservation deletes one reservation by id
+func (m *testDBRepo) DeleteReservation(id int) error {
+	return nil
+}
+
+// UpdateProcessedForReservation updates processed for reservation by id
+func (m *testDBRepo) UpdateProcessedForReservation(id, processed int) error {
+
+	return nil
+}
+
+func (m *testDBRepo) AllRooms() ([]models.Room, error) {
+	var room []models.Room
+
+	return room, nil
+}
+
+func (m *testDBRepo) GetRestrictionForRoomByDate(roomID int, start, end time.Time) ([]models.RoomRestriction, error) {
+
+	var restrictions []models.RoomRestriction
+
+	return restrictions, nil
+}
+
+// InsertBlockForRoom inserts a room restriction
+func (m *testDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
+	return nil
+}
+
+// DeleteBlockByID deletes a room restriction
+func (m *testDBRepo) DeleteBlockByID(id int) error {
+
+	return nil
 }
